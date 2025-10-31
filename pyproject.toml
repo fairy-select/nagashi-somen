@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nagashi-somen"
+dynamic = ["version"]
+description = 'Capture database changes and save them to a file.'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Noritaka IZUMI", email = "noritaka.izumi@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/fairy-select/nagashi-somen#readme"
+Issues = "https://github.com/fairy-select/nagashi-somen/issues"
+Source = "https://github.com/fairy-select/nagashi-somen"
+
+[tool.hatch.version]
+path = "src/nagashi_somen/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/nagashi_somen tests}"
+
+[tool.coverage.run]
+source_pkgs = ["nagashi_somen", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/nagashi_somen/__about__.py",
+]
+
+[tool.coverage.paths]
+nagashi_somen = ["src/nagashi_somen", "*/nagashi-somen/src/nagashi_somen"]
+tests = ["tests", "*/nagashi-somen/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
