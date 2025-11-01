@@ -102,7 +102,7 @@ class DatabaseMonitor:
             if not (has_replication_slave and has_replication_client):
                 logging.error("Missing replication privileges.")
                 logging.info("Please grant the following privileges:")
-                logging.info("GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '%s'@'%';", self.config["user"])
+                logging.info("GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '%s'@'%';", "[user]")
                 logging.info("FLUSH PRIVILEGES;")
                 return False
 
