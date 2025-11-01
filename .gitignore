@@ -1,2 +1,5 @@
 # python virtualenv
 /.venv
+
+# hatch build artifact
+/dist
