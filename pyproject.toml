@@ -24,12 +24,17 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "click",
+]
 
 [project.urls]
 Documentation = "https://github.com/fairy-select/nagashi-somen#readme"
 Issues = "https://github.com/fairy-select/nagashi-somen/issues"
 Source = "https://github.com/fairy-select/nagashi-somen"
+
+[project.scripts]
+nagashi-somen = "nagashi_somen.cli:nagashi_somen"
 
 [tool.hatch.version]
 path = "src/nagashi_somen/__about__.py"
