@@ -3,3 +3,6 @@
 
 # hatch build artifact
 /dist
+
+# default recorded query location
+/logs
