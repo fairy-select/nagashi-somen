@@ -2,6 +2,7 @@
 
 [![PyPI - Version](https://img.shields.io/pypi/v/nagashi-somen.svg)](https://pypi.org/project/nagashi-somen)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nagashi-somen.svg)](https://pypi.org/project/nagashi-somen)
+![PyPI - License](https://img.shields.io/pypi/l/nagashi-somen)
 
 ![logo](https://raw.githubusercontent.com/fairy-select/nagashi-somen/refs/heads/main/assets/images/logo.png)
 
