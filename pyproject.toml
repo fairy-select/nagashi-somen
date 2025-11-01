@@ -26,6 +26,9 @@ classifiers = [
 ]
 dependencies = [
   "click",
+  "mysql-replication",
+  "PyMySQL",
+  "colorama"
 ]
 
 [project.urls]
@@ -45,6 +48,9 @@ extra-dependencies = [
 ]
 [tool.hatch.envs.types.scripts]
 check = "mypy --install-types --non-interactive {args:src/nagashi_somen tests}"
+
+[tool.mypy]
+ignore_missing_imports = true
 
 [tool.coverage.run]
 source_pkgs = ["nagashi_somen", "tests"]

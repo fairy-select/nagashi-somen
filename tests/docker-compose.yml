@@ -1,0 +1,29 @@
+services:
+  mysql:
+    build:
+      context: ./mysql
+    container_name: mysql-binlog
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpass
+      TZ: Asia/Tokyo
+    command:
+      - "--default-time-zone=Asia/Tokyo"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      start_period: 10s
+      interval: 2s
+      timeout: 1s
+      retries: 10
+
+volumes:
+  mysql_data:
+    name: nagashi-somen-mysql-data
